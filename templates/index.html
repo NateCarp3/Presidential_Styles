@@ -58,6 +58,21 @@ h1{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(60px,11vw
 @media (max-width:600px){.looks{--w:74vw;padding-top:40px}}
 @media (prefers-reduced-motion:reduce){.track{scroll-behavior:auto}.slide{transition:none}}
 
+/* process: TP on the shop floor */
+.process{padding:72px var(--gutter) 40px;max-width:1440px;margin:0 auto}
+.process h2,.close h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:1}
+.process .sub{margin:12px 0 32px;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.reel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{position:relative;margin:0;overflow:hidden;background:#141826;aspect-ratio:3/4}
+.tile img,.tile video{display:block;width:100%;height:100%;object-fit:cover}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(0deg,rgba(10,13,24,.85),rgba(10,13,24,0));display:flex;align-items:baseline;gap:10px}
+.tile figcaption b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:.04em}
+.tile figcaption span{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
+.sound{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:rgba(10,13,24,.6);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.sound:hover{background:var(--ink);color:var(--bg)}
+.sound svg{width:20px;height:20px}
+@media (max-width:860px){.reel{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+
 /* close */
 .close{display:flex;flex-direction:column;align-items:center;gap:24px;padding:40px var(--gutter) 88px;text-align:center}
 .close h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:1}
@@ -95,6 +110,36 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
       <button class="arrow" id="prev" type="button" aria-label="Previous look">&larr;</button>
       <span class="count" id="count" aria-live="polite">01 / 08</span>
       <button class="arrow" id="next" type="button" aria-label="Next look">&rarr;</button>
+    </div>
+  </section>
+
+  <section class="process" id="process" aria-labelledby="process-title">
+    <h2 id="process-title">THE PROCESS</h2>
+    <p class="sub">TP SHOPS IT. PULLS IT. FITS IT.</p>
+    <div class="reel">
+      <figure class="tile">
+        <video src="static/process/scout.mp4" poster="static/process/scout.jpg" muted loop playsinline preload="metadata" aria-label="TP walking the store floor"></video>
+        <figcaption><span>01</span><b>SCOUT</b></figcaption>
+      </figure>
+      <figure class="tile"><img src="static/process/shoes.jpg" alt="Wall of designer sneakers and boots on glass shelves" loading="lazy"></figure>
+      <figure class="tile"><img src="static/process/racks.jpg" alt="Store racks of jackets and denim" loading="lazy"></figure>
+      <figure class="tile">
+        <video src="static/process/pull.mp4" poster="static/process/pull.jpg" muted loop playsinline preload="metadata" aria-label="TP pulling pieces from a rack"></video>
+        <figcaption><span>02</span><b>PULL</b></figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="static/process/detail-3.jpg" alt="TP studying a jewelry and accessories case" loading="lazy">
+        <figcaption><span>03</span><b>DETAIL</b></figcaption>
+      </figure>
+      <figure class="tile"><img src="static/process/detail-1.jpg" alt="Close view of the accessories case" loading="lazy"></figure>
+      <figure class="tile"><img src="static/process/detail-2.jpg" alt="TP picking through chains, belts and eyewear" loading="lazy"></figure>
+      <figure class="tile">
+        <video src="static/process/call.mp4" poster="static/process/call.jpg" muted loop playsinline preload="metadata" aria-label="TP talking through his picks"></video>
+        <button class="sound" type="button" aria-label="Turn sound on" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M16 9l5 6M21 9l-5 6"/></svg>
+        </button>
+        <figcaption><span>04</span><b>THE CALL</b></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -148,6 +193,29 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   track.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false;}},true);
 
   mark(); prev.disabled=true;
+})();
+
+(function(){
+  // process videos: play only while on screen
+  var vids=[].slice.call(document.querySelectorAll('.process video'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play(e.target):e.target.pause();});},{threshold:.4});
+    vids.forEach(function(v){io.observe(v);});
+  }
+  // sound toggle on THE CALL
+  var btn=document.querySelector('.process .sound');
+  if(btn){
+    var v=btn.parentNode.querySelector('video'), wave=btn.querySelector('.w');
+    btn.addEventListener('click',function(){
+      v.muted=!v.muted;
+      if(!v.muted){v.currentTime=0;play(v);}
+      btn.setAttribute('aria-pressed',String(!v.muted));
+      btn.setAttribute('aria-label',v.muted?'Turn sound on':'Turn sound off');
+      wave.setAttribute('d',v.muted?'M16 9l5 6M21 9l-5 6':'M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14');
+    });
+  }
 })();
 </script>
 </body>
