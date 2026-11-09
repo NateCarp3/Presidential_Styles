@@ -68,9 +68,6 @@ h1{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(60px,11vw
 .tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(0deg,rgba(10,13,24,.85),rgba(10,13,24,0));display:flex;align-items:baseline;gap:10px}
 .tile figcaption b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:.04em}
 .tile figcaption span{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
-.sound{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:rgba(10,13,24,.6);color:var(--ink);cursor:pointer;display:grid;place-items:center}
-.sound:hover{background:var(--ink);color:var(--bg)}
-.sound svg{width:20px;height:20px}
 @media (max-width:860px){.reel{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
 
 /* close */
@@ -135,9 +132,6 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
       <figure class="tile"><img src="static/process/detail-2.jpg" alt="TP picking through chains, belts and eyewear" loading="lazy"></figure>
       <figure class="tile">
         <video src="static/process/call.mp4" poster="static/process/call.jpg" muted loop playsinline preload="metadata" aria-label="TP talking through his picks"></video>
-        <button class="sound" type="button" aria-label="Turn sound on" aria-pressed="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M16 9l5 6M21 9l-5 6"/></svg>
-        </button>
         <figcaption><span>04</span><b>THE CALL</b></figcaption>
       </figure>
     </div>
@@ -203,18 +197,6 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   if('IntersectionObserver' in window && !reduce){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play(e.target):e.target.pause();});},{threshold:.4});
     vids.forEach(function(v){io.observe(v);});
-  }
-  // sound toggle on THE CALL
-  var btn=document.querySelector('.process .sound');
-  if(btn){
-    var v=btn.parentNode.querySelector('video'), wave=btn.querySelector('.w');
-    btn.addEventListener('click',function(){
-      v.muted=!v.muted;
-      if(!v.muted){v.currentTime=0;play(v);}
-      btn.setAttribute('aria-pressed',String(!v.muted));
-      btn.setAttribute('aria-label',v.muted?'Turn sound on':'Turn sound off');
-      wave.setAttribute('d',v.muted?'M16 9l5 6M21 9l-5 6':'M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14');
-    });
   }
 })();
 </script>
