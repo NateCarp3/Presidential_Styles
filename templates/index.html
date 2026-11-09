@@ -130,6 +130,31 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 @media (max-width:860px){.files{grid-template-columns:1fr}.files .intro{border-right:0;border-bottom:1px solid var(--line)}}
 @media (max-width:480px){.grid4{grid-template-columns:1fr}}
 
+/* lookbook */
+.lb-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px;margin-bottom:14px}
+.lb-head h3{font-size:clamp(26px,3.2vw,36px)}
+.looks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.look{background:#05080f;border:1px solid var(--line);padding:0;cursor:zoom-in;text-align:left;color:var(--ink);font:inherit;display:flex;flex-direction:column}
+.look:hover{border-color:var(--gold)}
+.look img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-bottom:1px solid var(--line)}
+.look .cap{padding:8px 10px 10px;display:grid;gap:2px}
+.look .cap b{font-family:var(--display);font-size:16px;font-weight:700}
+.look .cap span{font-size:12px;color:var(--muted)}
+@media (max-width:900px){.looks{grid-template-columns:repeat(2,1fr)}}
+.viewer{position:fixed;inset:0;z-index:20;background:rgba(5,8,15,.92);display:none;align-items:center;justify-content:center;padding:16px}
+.viewer.open{display:flex}
+.viewer .win{max-width:min(92vw,620px);width:100%}
+.viewer img{display:block;width:100%;max-height:72vh;object-fit:contain;background:#000}
+.viewer .vbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px}
+.viewer .vbar b{font-family:var(--display);font-size:18px}
+.viewer .vbar span{color:var(--muted);font-size:12px;display:block}
+.viewer .nav2{display:flex;gap:6px}
+.feat .shot{justify-self:end;position:relative;width:min(100%,300px);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--red)}
+.feat .shot img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.feat .shot .unlocked{position:absolute;right:-14px;bottom:-14px;padding:10px 14px}
+.feat .shot .unlocked b{font-size:18px}
+@media (max-width:760px){.feat .shot{justify-self:start}}
+
 /* process + folders */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .step{border:1px solid var(--line);padding:14px;background:#05080f}
@@ -194,7 +219,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;paddi
       <a href="#top">Home</a>
       <a href="#services">Services</a>
       <a href="#process">Process</a>
-      <a href="#work">Work</a>
+      <a href="#lookbook">Lookbook</a>
       <a href="#message">Message</a>
       <a href="#book">Book</a>
     </nav>
@@ -263,11 +288,26 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;paddi
         <p>Men's styling for the stage, the camera and the everyday. Private clients, wardrobe builds and event looks, run out of New Jersey and on the road.</p>
         <a class="btn solid" href="#services">Open the file ↗</a>
       </div>
-      <div class="unlocked">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#efe9dc" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg>
-        <b>UNLOCKED</b>
-        <span class="mini">4 files ready</span>
+      <div class="shot">
+        <img src="static/lookbook/look-03.jpg" alt="Client in a newspaper-print tee and light-wash wide-leg denim, carrying a duffel">
+        <div class="unlocked">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#efe9dc" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg>
+          <b>UNLOCKED</b>
+          <span class="mini">9 looks ready</span>
+        </div>
       </div>
+    </div>
+  </article>
+
+  <!-- LOOKBOOK -->
+  <article class="win" id="lookbook" data-name="LOOKBOOK.EXE">
+    <div class="tb"><h2>LOOKBOOK.EXE</h2><div class="ctl"><button class="m" aria-label="Minimize">_</button><button class="x" aria-label="Close">×</button></div></div>
+    <div class="body">
+      <div class="lb-head">
+        <div><div class="mini">C:\WORK\LOOKBOOK // 9 files</div><h3>Styled by TP</h3></div>
+        <span class="mini">Click a look to open it</span>
+      </div>
+      <div class="looks" id="looks"></div>
     </div>
   </article>
 
@@ -375,6 +415,17 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;paddi
   <footer>© 2026 Presidential Styles · Men's celebrity stylist · New Jersey // travel</footer>
 </main>
 
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vtitle">
+  <div class="win">
+    <div class="tb"><h2 id="vfile">LOOK_01.JPG</h2><div class="ctl"><button class="x" id="vclose" aria-label="Close viewer">×</button></div></div>
+    <img id="vimg" src="static/lookbook/look-01.jpg" alt="">
+    <div class="vbar">
+      <div><b id="vtitle">Look</b><span id="vdesc"></span></div>
+      <div class="nav2"><button class="btn" id="vprev" type="button" aria-label="Previous look">←</button><button class="btn" id="vnext" type="button" aria-label="Next look">→</button></div>
+    </div>
+  </div>
+</div>
+
 <div class="task">
   <a class="start" href="https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform?usp=header"><span style="color:var(--red)">★</span> BOOK</a>
   <div class="tray" id="tray" aria-label="Closed windows"></div>
@@ -385,7 +436,7 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;paddi
 (function(){
   // windows: minimize + close to taskbar
   var tray=document.getElementById('tray');
-  document.querySelectorAll('.win').forEach(function(w){
+  document.querySelectorAll('.desk .win').forEach(function(w){
     var m=w.querySelector('.ctl .m'), x=w.querySelector('.ctl .x');
     if(m) m.addEventListener('click',function(){w.classList.toggle('min');});
     if(x) x.addEventListener('click',function(){
@@ -440,6 +491,51 @@ footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center;paddi
     var a=document.createElement('a');a.className='folder';a.href='https://www.instagram.com/presidenialstyles_/';
     a.innerHTML='<svg viewBox="0 0 64 52" aria-hidden="true"><path d="M2 8h22l5 6h33v36H2z" fill="#e3bd62"/><path d="M2 18h60v32H2z" fill="#f0cf80"/><text x="32" y="41" text-anchor="middle" font-family="Pixelify Sans, monospace" font-size="14" fill="#1f3a8c">★</text></svg>';
     var s=document.createElement('span');s.textContent=n;a.appendChild(s);fwrap.appendChild(a);
+  });
+
+  // lookbook
+  var looks=[
+    ['Street edit','Distressed graphic tee, washed wide-leg denim, chunky sneakers'],
+    ['After dark','Graphic zip hoodie, studded black denim shorts, glossy sneakers'],
+    ['Travel day','Newspaper-print tee, light-wash wide-leg denim, all-white sneakers'],
+    ['Game day arrival','Hooded zip jacket, ribbed tank, distressed denim shorts'],
+    ['Tunnel walk','Graphic tee layered over a thermal, straight-leg denim'],
+    ['Statement set','Tonal yellow track set, crossbody bag, dark shades'],
+    ['Night out','Sleeveless graphic tee, washed black flared denim'],
+    ['Arrival','Embellished graphic tee, fitted cap, oversized shades'],
+    ['Away game','Cream blazer over a knit turtleneck, green trousers, white sneakers']
+  ];
+  var lw=document.getElementById('looks'), viewer=document.getElementById('viewer'), vimg=document.getElementById('vimg');
+  var vfile=document.getElementById('vfile'), vtitle=document.getElementById('vtitle'), vdesc=document.getElementById('vdesc');
+  var cur=0, lastBtn=null;
+  function src(i){return 'static/lookbook/look-'+String(i+1).padStart(2,'0')+'.jpg';}
+  function show(i){
+    cur=(i+looks.length)%looks.length;
+    vimg.src=src(cur);vimg.alt=looks[cur][0]+': '+looks[cur][1];
+    vfile.textContent='LOOK_'+String(cur+1).padStart(2,'0')+'.JPG';
+    vtitle.textContent=looks[cur][0];vdesc.textContent=looks[cur][1];
+  }
+  function openV(i,btn){lastBtn=btn;show(i);viewer.classList.add('open');document.getElementById('vclose').focus();}
+  function closeV(){viewer.classList.remove('open');if(lastBtn)lastBtn.focus();}
+  looks.forEach(function(l,i){
+    var b=document.createElement('button');b.type='button';b.className='look';
+    var im=document.createElement('img');im.src=src(i);im.alt=l[0]+': '+l[1];im.loading='lazy';
+    var c=document.createElement('span');c.className='cap';
+    var t=document.createElement('b');t.textContent=String(i+1).padStart(2,'0')+' // '+l[0];
+    var d=document.createElement('span');d.textContent=l[1];
+    c.append(t,d);b.append(im,c);
+    b.addEventListener('click',function(){openV(i,b);});
+    lw.appendChild(b);
+  });
+  document.getElementById('vclose').addEventListener('click',closeV);
+  document.getElementById('vprev').addEventListener('click',function(){show(cur-1);});
+  document.getElementById('vnext').addEventListener('click',function(){show(cur+1);});
+  viewer.addEventListener('click',function(e){if(e.target===viewer)closeV();});
+  document.addEventListener('keydown',function(e){
+    if(!viewer.classList.contains('open'))return;
+    if(e.key==='Escape')closeV();
+    if(e.key==='ArrowLeft')show(cur-1);
+    if(e.key==='ArrowRight')show(cur+1);
   });
 
   // message note
