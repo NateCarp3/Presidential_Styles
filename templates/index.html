@@ -32,21 +32,24 @@ a{color:var(--ink)}
 .btn.gold:hover{background:var(--ink);border-color:var(--ink)}
 
 /* hero */
-.hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden}
-.slides{position:absolute;inset:0;background:#05070f}
-.sh{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity 1.4s ease}
-.sh.on{opacity:1}
-.sh .f{position:relative;display:block;width:100%;height:100%;object-fit:cover}
+.hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden;background:var(--bg)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:2% 43%}
+.hero-text{position:absolute;left:var(--gutter);right:var(--gutter);top:clamp(88px,9vw,124px);z-index:2;container-type:inline-size}
+.title{position:relative;display:inline-block;max-width:100%;padding:clamp(12px,1.8vw,22px) 0;isolation:isolate}
+.title::before{content:"";position:absolute;z-index:-1;inset:-130px -260px -110px -260px;background:rgba(8,11,22,.5);-webkit-mask-image:linear-gradient(to right,transparent,#000 280px,#000 calc(100% - 280px),transparent),linear-gradient(to bottom,transparent,#000 130px,#000 calc(100% - 110px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 280px,#000 calc(100% - 280px),transparent),linear-gradient(to bottom,transparent,#000 130px,#000 calc(100% - 110px),transparent);mask-composite:intersect;pointer-events:none}
+h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,48px);text-shadow:0 2px 16px rgba(0,0,0,.5);line-height:1.1;letter-spacing:.22em;margin-right:-.22em;white-space:nowrap}
 .top{z-index:2}
 .top{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px var(--gutter)}
 .mark{font-family:var(--display);font-weight:300;font-size:28px;letter-spacing:.2em;text-decoration:none}
 .top .btn{padding:10px 20px;background:rgba(10,13,24,.55)}
 .top .btn:hover{background:var(--ink)}
-.title{position:absolute;left:var(--gutter);bottom:clamp(24px,5vw,64px);z-index:2;max-width:calc(100% - 2 * var(--gutter));padding:clamp(14px,2vw,24px) 0;isolation:isolate}
-.title::before{content:"";position:absolute;z-index:-1;inset:-110px -200px -90px -200px;background:rgba(8,11,22,.94);-webkit-mask-image:linear-gradient(to right,transparent,#000 180px,#000 calc(100% - 180px),transparent),linear-gradient(to bottom,transparent,#000 110px,#000 calc(100% - 80px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 180px,#000 calc(100% - 180px),transparent),linear-gradient(to bottom,transparent,#000 110px,#000 calc(100% - 80px),transparent);mask-composite:intersect;pointer-events:none}
-@media (max-width:600px){.title{left:var(--gutter);right:var(--gutter);bottom:20px;max-width:none}.title::before{inset:-90px calc(-1 * var(--gutter)) -20px;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%);mask-image:linear-gradient(to bottom,transparent,#000 55%)}}
-h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,5vw,76px);line-height:1.1;letter-spacing:.22em;margin-right:-.22em;white-space:nowrap}
-@media (max-width:600px){h1{letter-spacing:.14em;margin-right:-.14em;font-size:6.6vw}}
+@media (max-width:600px){
+  .hero{height:min(88vh,760px);min-height:520px}
+  .hero-text{top:auto;bottom:20px}
+  .title{display:block}
+  .title::before{inset:-110px calc(-1 * var(--gutter)) -20px;background:rgba(8,11,22,.6);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%);mask-image:linear-gradient(to bottom,transparent,#000 55%)}
+  h1{letter-spacing:.14em;margin-right:-.14em;font-size:7.2cqi}
+}
 .tag{margin:14px 0 0;font-size:clamp(11px,1.1vw,15px);font-weight:700;letter-spacing:.18em;color:var(--gold)}
 
 /* looks carousel: one look centred, neighbours faded at the sides */
@@ -87,35 +90,18 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 </head>
 <body>
 
-<header>
- <div class="hero">
-  <div class="slides" id="slides" aria-roledescription="slideshow" aria-label="TP's looks">
-    <div class="sh on"><img class="f" src="static/fits/fit-07.jpg" style="object-position:0% 20%" alt="Washed tee with a white neckerchief and denim shorts"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-10.jpg" style="object-position:43% 42%" alt="Graphic tee and wide grey denim at a flower mural"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-04.jpg" style="object-position:86% 36%" alt="Paisley pants, washed tee and patent sneakers on a bench"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-11.jpg" style="object-position:50% 40%" alt="Airbrushed zip hoodie with cargo shorts"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-03.jpg" style="object-position:71% 56%" alt="Peach tee, light denim and a checkered crossbody at night"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-15.jpg" style="object-position:50% 46%" alt="Distressed graphic sweatshirt with light wide-leg denim"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-14.jpg" style="object-position:0% 26%" alt="TP holding up a pair of pants while shopping"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-09.jpg" style="object-position:50% 45%" alt="Printed long sleeve, red belt and faded wide-leg denim"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-01.jpg" style="object-position:100% 3%" alt="Neon hoodie, grey skinny denim and red high-tops"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-02.jpg" style="object-position:100% 18%" alt="Flame-hem tee, striped track pants and high-tops"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-05.jpg" style="object-position:0% 52%" alt="Cartoon graphic tee with black leather pants"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-06.jpg" style="object-position:50% 0%" alt="Pink knit with flames over black leather pants, city at night"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-12.jpg" style="object-position:100% 50%" alt="Peach tee, green cap and wide grey denim at night"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-13.jpg" style="object-position:100% 46%" alt="Band tee and leather pants, mirror shot in a store"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-16.jpg" style="object-position:100% 46%" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store"></div>
-    <div class="sh"><img class="f" data-src="static/fits/fit-08.jpg" style="object-position:50% 0%" alt="Checkered puffer over a cream hoodie"></div>
-  </div>
+<header class="hero">
   <div class="top">
     <a class="mark" href="#" aria-label="Presidential Styles home">P</a>
     <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform?usp=header">BOOK</a>
   </div>
-  <div class="title">
-    <h1>PRESIDENTIAL STYLES</h1>
-    <p class="tag">MEN'S CELEBRITY STYLIST · NEW JERSEY</p>
+  <div class="hero-text">
+    <div class="title">
+      <h1>PRESIDENTIAL STYLES</h1>
+      <p class="tag">MEN'S CELEBRITY STYLIST · NEW JERSEY</p>
+    </div>
   </div>
- </div>
+  <img class="hero-img" src="static/lookbook/hero-bench.jpg" alt="TP seated on a bench in paisley pants, a washed tee and patent sneakers">
 </header>
 
 <main>
@@ -214,19 +200,6 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   mark(); prev.disabled=true;
 })();
 
-</script>
-<script>
-(function(){
-  var sl=[].slice.call(document.querySelectorAll('#slides .sh')), i=0;
-  if(sl.length<2) return;
-  function load(el){[].forEach.call(el.querySelectorAll('img[data-src]'),function(im){im.src=im.getAttribute('data-src');im.removeAttribute('data-src');});}
-  load(sl[1]);
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  setInterval(function(){
-    if(document.hidden) return;
-    sl[i].classList.remove('on'); i=(i+1)%sl.length; load(sl[i]); sl[i].classList.add('on'); load(sl[(i+1)%sl.length]);
-  },10000);
-})();
 </script>
 </body>
 </html>
