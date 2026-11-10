@@ -89,7 +89,7 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 
 /* process: TP on the shop floor */
 .process{padding:72px var(--gutter) 40px;max-width:1440px;margin:0 auto}
-.process h2,.close h2,.looks h2,.about h2{margin:0;font-family:var(--display);font-weight:200;font-size:clamp(28px,4vw,52px);line-height:1.1;letter-spacing:.22em}
+.process h2,.close h2,.looks h2,.about h2,.pricing h2{margin:0;font-family:var(--display);font-weight:200;font-size:clamp(28px,4vw,52px);line-height:1.1;letter-spacing:.22em}
 .process .sub{margin:12px 0 32px;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
 .reel{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .tile{position:relative;margin:0;overflow:hidden;aspect-ratio:3/4}
@@ -113,6 +113,28 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .lb-prev{left:16px;top:50%;transform:translateY(-50%)}
 .lb-next{right:16px;top:50%;transform:translateY(-50%)}
 @media (max-width:600px){.lb-prev,.lb-next{top:auto;bottom:16px;transform:none}}
+
+/* pricing */
+.pricing{padding:72px var(--gutter) 24px;max-width:1440px;margin:0 auto;box-sizing:border-box}
+.pricing .sub{margin:14px 0 0;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.plan{border:1px solid rgba(239,233,220,.16);padding:28px clamp(20px,2.4vw,32px);display:flex;flex-direction:column;gap:12px;background:rgba(239,233,220,.02)}
+.plan.wide{grid-column:1/-1}
+.plan.slim{padding-top:20px;padding-bottom:20px}
+.plan-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.plan h3{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(20px,1.8vw,26px);letter-spacing:.16em;text-transform:uppercase}
+.price{font-family:var(--display);font-weight:300;font-size:clamp(24px,2.2vw,32px);color:var(--gold);white-space:nowrap}
+.price small{font-size:.55em;letter-spacing:.08em;color:#c9c3b8;margin-left:4px}
+.plan p{margin:0;font-size:16px;line-height:1.65;color:#e6e0d4;max-width:68ch}
+.plan .terms{font-size:14px;color:#a9a39a}
+.chip{align-self:flex-start;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(227,189,98,.45);padding:5px 10px}
+.note{margin:28px 0 0;font-size:13px;line-height:1.7;color:#a9a39a;max-width:90ch}
+.contact{display:flex;flex-wrap:wrap;gap:10px 28px;margin:24px 0 0;padding:20px 0 0;border-top:1px solid rgba(239,233,220,.16);list-style:none;font-size:14px;letter-spacing:.04em}
+.contact li{margin:0;color:#c9c3b8}
+.contact b{font-weight:700;letter-spacing:.14em;font-size:11px;text-transform:uppercase;color:var(--gold);margin-right:8px}
+.contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(239,233,220,.3)}
+.contact a:hover{border-color:var(--gold)}
+@media (max-width:1000px){.plans{grid-template-columns:1fr}}
 
 /* close */
 .close{display:flex;flex-direction:column;align-items:center;gap:24px;padding:40px var(--gutter) 88px;text-align:center}
@@ -194,6 +216,48 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
       <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Distressed graphic sweatshirt with light wide-leg denim"><img src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim" loading="lazy"></button></figure>
       <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Varsity jacket and brown wide-leg denim, mirror shot in a store"><img src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store" loading="lazy"></button></figure>
     </div>
+  </section>
+
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+    <h2 id="pricing-title">PRICING</h2>
+    <p class="sub">MEN'S PERSONAL STYLING FOR ANY OCCASION</p>
+    <div class="plans">
+      <article class="plan">
+        <div class="plan-top"><h3>Fit Files</h3><span class="price">$100</span></div>
+        <p>I'll create 2 complete looks for your event (outfit, shoes, and accessories) within your budget.</p>
+        <p class="terms">Payment is required upfront and is non-refundable. You may request 1 revision within 24 hours of delivery.</p>
+        <span class="chip">Virtual</span>
+      </article>
+      <article class="plan">
+        <div class="plan-top"><h3>Presidential's Look Book</h3><span class="price">$275</span></div>
+        <p>I'll curate up to 5 outfits for different occasions (e.g., homecoming, vacation, work conference), based on your budget.</p>
+        <p class="terms">Please book at least 2–3 weeks before your event. A full payment is required upfront. Payments are non-refundable. You have 24 hours to request up to 2 revisions.</p>
+        <span class="chip">Virtual</span>
+      </article>
+      <article class="plan">
+        <div class="plan-top"><h3>Personal Shopping</h3><span class="price">$75<small>/hr</small></span></div>
+        <p>In-person styling and shopping with your stylist, 1–2 looks.</p>
+        <p class="terms">Additional travel fees may apply depending on location.</p>
+        <span class="chip">In person</span>
+      </article>
+      <article class="plan wide slim">
+        <div class="plan-top"><h3>Outfit Links</h3><span class="price">$50<small>per look</small></span></div>
+      </article>
+      <article class="plan wide">
+        <div class="plan-top"><h3>Private Client Styling</h3><span class="price">Custom quote</span></div>
+        <p class="terms">Pricing upon consultation.</p>
+        <p>A private, full-service styling experience designed for clients with professional appearances, events, game days, media engagements, and ongoing wardrobe needs. Includes curated looks, sourcing, fittings, and in-person/virtual styling.</p>
+        <p class="terms">Full payment due upon booking.</p>
+        <span class="chip">In person / Virtual</span>
+      </article>
+    </div>
+    <p class="note">Please note: Styling guides are intended for inspiration and outfit coordination purposes only. Clothing items are not sold by me, and I do not keep inventory or clothing on hand. All suggested pieces must be purchased separately through the recommended retailers or sources.</p>
+    <ul class="contact">
+      <li><b>Instagram</b><a href="https://www.instagram.com/presidenialstyles_/">@presidenialstyles_</a></li>
+      <li><b>TikTok</b><a href="https://www.tiktok.com/@presidentialstyles22">@Presidentialstyles22</a></li>
+      <li><b>X</b><a href="https://x.com/Presidenial6ix">@Presidenial6ix</a></li>
+      <li><b>Text</b><a href="sms:+16098022975">609.802.2975</a></li>
+    </ul>
   </section>
 
   <section class="close">
