@@ -33,7 +33,7 @@ a{color:var(--ink)}
 
 /* hero */
 .hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden;background:radial-gradient(ellipse 60% 80% at 50% 50%,#141c38,var(--bg) 75%)}
-.hero-frame{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(min(92vh,880px) * 1.442));-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 calc(100% - 7%),transparent),linear-gradient(to bottom,transparent,#000 6%,#000 calc(100% - 6%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 7%,#000 calc(100% - 7%),transparent),linear-gradient(to bottom,transparent,#000 6%,#000 calc(100% - 6%),transparent);mask-composite:intersect}
+.hero-frame{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(min(92vh,880px) * 1.442));-webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);mask-composite:intersect}
 .hero-frame picture{display:contents}
 .hero-img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .hero-text{position:absolute;left:var(--gutter);right:var(--gutter);top:clamp(88px,9vw,124px);z-index:2;container-type:inline-size}
@@ -47,7 +47,7 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .top .btn:hover{background:var(--ink)}
 @media (max-width:600px){
   .hero{height:min(88vh,760px);min-height:520px}
-  .hero-frame{left:0;transform:none;width:100%;-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 calc(100% - 5%),transparent),linear-gradient(to bottom,transparent,#000 7%,#000 calc(100% - 7%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 5%,#000 calc(100% - 5%),transparent),linear-gradient(to bottom,transparent,#000 7%,#000 calc(100% - 7%),transparent);mask-composite:intersect}
+  .hero-frame{left:0;transform:none;width:100%;-webkit-mask-image:linear-gradient(to right,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent),linear-gradient(to bottom,transparent,#000 3%,#000 calc(100% - 3%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent),linear-gradient(to bottom,transparent,#000 3%,#000 calc(100% - 3%),transparent);mask-composite:intersect}
   .hero-img{object-position:2% 43%}
   .hero-text{top:auto;bottom:20px}
   .title{display:block}
@@ -63,7 +63,7 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 var(--w);scroll-snap-align:center;margin:0;opacity:.28;transform:scale(.88);transition:opacity .4s ease,transform .4s ease;cursor:pointer}
 .slide.on{opacity:1;transform:scale(1);cursor:default}
-.slide img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;user-select:none;-webkit-user-drag:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 calc(100% - 7%),transparent),linear-gradient(to bottom,transparent,#000 6%,#000 calc(100% - 6%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 7%,#000 calc(100% - 7%),transparent),linear-gradient(to bottom,transparent,#000 6%,#000 calc(100% - 6%),transparent);mask-composite:intersect}
+.slide img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;user-select:none;-webkit-user-drag:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);mask-composite:intersect}
 .ctrl{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:20px}
 .arrow{width:48px;height:48px;border:2px solid var(--ink);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;display:grid;place-items:center}
 .arrow:hover{background:var(--ink);color:var(--bg)}
@@ -93,7 +93,7 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .process .sub{margin:12px 0 32px;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
 .reel{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .tile{position:relative;margin:0;overflow:hidden;aspect-ratio:3/4}
-.tile img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;-webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 calc(100% - 9%),transparent),linear-gradient(to bottom,transparent,#000 7%,#000 calc(100% - 7%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 9%,#000 calc(100% - 9%),transparent),linear-gradient(to bottom,transparent,#000 7%,#000 calc(100% - 7%),transparent);mask-composite:intersect}
+.tile img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;-webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 3%,#000 calc(100% - 3%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 3%,#000 calc(100% - 3%),transparent);mask-composite:intersect}
 .tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(0deg,rgba(10,13,24,.85),rgba(10,13,24,0));display:flex;align-items:baseline;gap:10px}
 .tile figcaption b{font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:.2em}
 .tile figcaption span{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
