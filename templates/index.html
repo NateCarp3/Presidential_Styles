@@ -76,9 +76,19 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 
 .looks h2{padding:0 var(--gutter);max-width:1440px;margin:0 auto 28px;box-sizing:border-box}
 
+/* about */
+.about{padding:80px var(--gutter) 16px;max-width:1440px;margin:0 auto;box-sizing:border-box}
+.about .lead{margin:28px 0 0;font-family:var(--display);font-weight:200;font-size:clamp(26px,3.6vw,50px);line-height:1.25;letter-spacing:.02em;max-width:24ch;text-wrap:balance}
+.about .lead em{font-style:normal;color:var(--gold)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin:48px 0 0;padding:32px 0 0;border-top:1px solid rgba(239,233,220,.16);list-style:none}
+.facts li{margin:0}
+.facts b{display:block;font-family:var(--display);font-weight:200;font-size:clamp(32px,4vw,58px);line-height:1;letter-spacing:.06em;color:var(--gold)}
+.facts span{display:block;margin-top:12px;font-size:15px;line-height:1.55;color:#c9c3b8;max-width:30ch}
+@media (max-width:760px){.facts{grid-template-columns:1fr;gap:28px}}
+
 /* process: TP on the shop floor */
 .process{padding:72px var(--gutter) 40px;max-width:1440px;margin:0 auto}
-.process h2,.close h2,.looks h2{margin:0;font-family:var(--display);font-weight:200;font-size:clamp(28px,4vw,52px);line-height:1.1;letter-spacing:.22em}
+.process h2,.close h2,.looks h2,.about h2{margin:0;font-family:var(--display);font-weight:200;font-size:clamp(28px,4vw,52px);line-height:1.1;letter-spacing:.22em}
 .process .sub{margin:12px 0 32px;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
 .reel{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .tile{position:relative;margin:0;overflow:hidden;background:#141826;aspect-ratio:3/4}
@@ -116,6 +126,16 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 </header>
 
 <main>
+  <section class="about" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">THE STYLIST</h2>
+    <p class="lead">It's TP's job to turn <em>your vision</em> into reality.</p>
+    <ul class="facts">
+      <li><b>14</b><span>NFL clients styled</span></li>
+      <li><b>Every need</b><span>Styles people for all types of different needs</span></li>
+      <li><b>Tri-state</b><span>Travels across the tri-state area to drop off your purchases</span></li>
+    </ul>
+  </section>
+
   <section class="looks" aria-roledescription="carousel" aria-labelledby="fits-title">
     <h2 id="fits-title">CLIENT FITS</h2>
     <div class="track" id="track" tabindex="0">
