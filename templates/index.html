@@ -66,6 +66,8 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 var(--w);scroll-snap-align:center;margin:0;opacity:.28;transform:scale(.88);transition:opacity .4s ease,transform .4s ease;cursor:pointer}
 .slide.on{opacity:1;transform:scale(1);cursor:default}
+.pstyle .slide.on{cursor:pointer}
+.pstyle .slide img{object-position:50% 30%}
 .slide img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;user-select:none;-webkit-user-drag:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);mask-composite:intersect}
 .ctrl{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:20px}
 .arrow{width:48px;height:48px;border:2px solid var(--ink);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;display:grid;place-items:center}
@@ -180,7 +182,7 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 
   <section class="looks" aria-roledescription="carousel" aria-labelledby="fits-title">
     <h2 id="fits-title">CLIENT FITS</h2>
-    <div class="track" id="track" tabindex="0">
+    <div class="track" tabindex="0">
       <figure class="slide"><img src="static/lookbook/look-01.jpg" alt="Distressed graphic tee with washed wide-leg denim"></figure>
       <figure class="slide"><img src="static/lookbook/look-02.jpg" alt="Graphic zip hoodie with studded black denim shorts"></figure>
       <figure class="slide"><img src="static/lookbook/look-03.jpg" alt="Newspaper-print tee with light-wash wide-leg denim"></figure>
@@ -193,31 +195,9 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
       <figure class="slide"><img src="static/lookbook/look-10.jpg" alt="TP with a client in a store, varsity jacket and brown wide-leg denim"></figure>
     </div>
     <div class="ctrl">
-      <button class="arrow" id="prev" type="button" aria-label="Previous look">&larr;</button>
-      <span class="dots" id="dots" aria-hidden="true"><span></span><span class="on"></span><span></span></span>
-      <button class="arrow" id="next" type="button" aria-label="Next look">&rarr;</button>
-    </div>
-  </section>
-
-  <section class="process" id="fits" aria-labelledby="fits2-title">
-    <h2 id="fits2-title">P STYLE</h2>
-    <div class="reel">
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Neon hoodie, grey skinny denim and red high-tops"><img src="static/fits/fit-01.jpg" alt="Neon hoodie, grey skinny denim and red high-tops" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Flame-hem tee, striped track pants and high-tops"><img src="static/fits/fit-02.jpg" alt="Flame-hem tee, striped track pants and high-tops" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Peach tee, light denim and a checkered crossbody at night"><img src="static/fits/fit-03.jpg" alt="Peach tee, light denim and a checkered crossbody at night" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Paisley pants, washed tee and patent sneakers on a bench"><img src="static/fits/fit-04.jpg" alt="Paisley pants, washed tee and patent sneakers on a bench" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Cartoon graphic tee with black leather pants"><img src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Pink knit with flames over black leather pants, city at night"><img src="static/fits/fit-06.jpg" alt="Pink knit with flames over black leather pants, city at night" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Washed tee with a white neckerchief and denim shorts"><img src="static/fits/fit-07.jpg" alt="Washed tee with a white neckerchief and denim shorts" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Checkered puffer over a cream hoodie"><img src="static/fits/fit-08.jpg" alt="Checkered puffer over a cream hoodie" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Printed long sleeve, red belt and faded wide-leg denim"><img src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Graphic tee and wide grey denim at a flower mural"><img src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Airbrushed zip hoodie with cargo shorts"><img src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Peach tee, green cap and wide grey denim at night"><img src="static/fits/fit-12.jpg" alt="Peach tee, green cap and wide grey denim at night" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Band tee and leather pants, mirror shot in a store"><img src="static/fits/fit-13.jpg" alt="Band tee and leather pants, mirror shot in a store" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: TP holding up a pair of pants while shopping"><img src="static/fits/fit-14.jpg" alt="TP holding up a pair of pants while shopping" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Distressed graphic sweatshirt with light wide-leg denim"><img src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim" loading="lazy"></button></figure>
-      <figure class="tile"><button type="button" class="tile-open" aria-label="Open photo: Varsity jacket and brown wide-leg denim, mirror shot in a store"><img src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store" loading="lazy"></button></figure>
+      <button class="arrow prev" type="button" aria-label="Previous look">&larr;</button>
+      <span class="dots" aria-hidden="true"><span></span><span class="on"></span><span></span></span>
+      <button class="arrow next" type="button" aria-label="Next look">&rarr;</button>
     </div>
   </section>
 
@@ -263,6 +243,33 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
     </ul>
   </section>
 
+  <section class="looks pstyle" id="fits" aria-roledescription="carousel" aria-labelledby="fits2-title" data-zoom>
+    <h2 id="fits2-title">P STYLE</h2>
+    <div class="track" tabindex="0">
+      <figure class="slide"><img src="static/fits/fit-01.jpg" alt="Neon hoodie, grey skinny denim and red high-tops" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-02.jpg" alt="Flame-hem tee, striped track pants and high-tops" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-03.jpg" alt="Peach tee, light denim and a checkered crossbody at night" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-04.jpg" alt="Paisley pants, washed tee and patent sneakers on a bench" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-06.jpg" alt="Pink knit with flames over black leather pants, city at night" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-07.jpg" alt="Washed tee with a white neckerchief and denim shorts" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-08.jpg" alt="Checkered puffer over a cream hoodie" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-12.jpg" alt="Peach tee, green cap and wide grey denim at night" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-13.jpg" alt="Band tee and leather pants, mirror shot in a store" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-14.jpg" alt="TP holding up a pair of pants while shopping" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store" loading="lazy"></figure>
+    </div>
+    <div class="ctrl">
+      <button class="arrow prev" type="button" aria-label="Previous look">&larr;</button>
+      <span class="dots" aria-hidden="true"><span></span><span class="on"></span><span></span></span>
+      <button class="arrow next" type="button" aria-label="Next look">&rarr;</button>
+    </div>
+  </section>
+
   <section class="close">
     <h2>YOUR TURN.</h2>
     <div class="acts">
@@ -276,8 +283,9 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 
 <script>
 (function(){
-  var track=document.getElementById('track'), slides=[].slice.call(track.querySelectorAll('.slide'));
-  var prev=document.getElementById('prev'), next=document.getElementById('next'), dots=[].slice.call(document.querySelectorAll('#dots span'));
+function initCarousel(sec){
+  var track=sec.querySelector('.track'), slides=[].slice.call(track.querySelectorAll('.slide'));
+  var prev=sec.querySelector('.prev'), next=sec.querySelector('.next'), dots=[].slice.call(sec.querySelectorAll('.dots span'));
   var cur=-1, n=slides.length;
 
   function center(i){
@@ -299,7 +307,7 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   window.addEventListener('resize',function(){center(cur);});
   prev.addEventListener('click',function(){go(cur-1);});
   next.addEventListener('click',function(){go(cur+1);});
-  slides.forEach(function(s,i){s.addEventListener('click',function(){if(i!==cur)go(i);});});
+  slides.forEach(function(s,i){s.addEventListener('click',function(){if(i!==cur)go(i);else if(sec.hasAttribute('data-zoom')&&window.openLightbox)window.openLightbox(slides.map(function(x){return x.querySelector('img');}),i,function(k){center(k);});});});
   track.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'){e.preventDefault();go(cur+1);}
     if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);}
@@ -314,6 +322,8 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 
   function start(){var m=Math.floor((n-1)/2), s=slides[m]; track.style.scrollBehavior='auto'; track.scrollLeft=s.offsetLeft-(track.clientWidth-s.offsetWidth)/2; track.style.scrollBehavior=''; mark();}
   start(); window.addEventListener('load',start);
+}
+[].forEach.call(document.querySelectorAll('section.looks'),initCarousel);
 })();
 
 </script>
@@ -326,12 +336,11 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 
 <script>
 (function(){
-  var btns=[].slice.call(document.querySelectorAll('.tile-open')), lb=document.getElementById('lb'), img=document.getElementById('lb-img');
-  var i=0, last=null;
-  function show(k){i=(k+btns.length)%btns.length; var t=btns[i].querySelector('img'); img.src=t.getAttribute('src'); img.alt=t.alt;}
-  function open(k){last=btns[k]; show(k); lb.hidden=false; document.body.style.overflow='hidden'; requestAnimationFrame(function(){lb.classList.add('open');}); document.getElementById('lb-x').focus();}
-  function close(){lb.classList.remove('open'); document.body.style.overflow=''; setTimeout(function(){lb.hidden=true;},250); if(last)last.focus();}
-  btns.forEach(function(b,k){b.addEventListener('click',function(){open(k);});});
+  var lb=document.getElementById('lb'), img=document.getElementById('lb-img');
+  var list=[], i=0, after=null, last=null;
+  function show(k){i=(k+list.length)%list.length; img.src=list[i].getAttribute('src'); img.alt=list[i].alt;}
+  function close(){lb.classList.remove('open'); document.body.style.overflow=''; var k=i, cb=after; setTimeout(function(){lb.hidden=true; if(cb)cb(k);},260); if(last)last.focus({preventScroll:true});}
+  window.openLightbox=function(imgs,k,cb){list=imgs; after=cb; last=document.activeElement; show(k); lb.hidden=false; document.body.style.overflow='hidden'; requestAnimationFrame(function(){lb.classList.add('open');}); document.getElementById('lb-x').focus();};
   document.getElementById('lb-x').addEventListener('click',close);
   document.getElementById('lb-prev').addEventListener('click',function(e){e.stopPropagation();show(i-1);});
   document.getElementById('lb-next').addEventListener('click',function(e){e.stopPropagation();show(i+1);});
