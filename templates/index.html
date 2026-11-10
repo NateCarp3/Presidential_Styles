@@ -33,7 +33,12 @@ a{color:var(--ink)}
 
 /* hero */
 .hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden}
-.hero > img{display:block;width:100%;height:100%;object-fit:cover;object-position:20% 25%}
+.slides{position:absolute;inset:0;background:#05070f}
+.sh{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity 1.4s ease}
+.sh.on{opacity:1}
+.sh .b{position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(30px) brightness(.45);transform:scale(1.05)}
+.sh .f{position:relative;display:block;width:100%;height:100%;object-fit:contain}
+.top{z-index:2}
 .top{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px var(--gutter)}
 .mark{font-family:var(--display);font-weight:300;font-size:28px;letter-spacing:.2em;text-decoration:none}
 .top .btn{padding:10px 20px;background:rgba(10,13,24,.55)}
@@ -64,9 +69,9 @@ h1{margin:0;font-family:var(--display);font-weight:200;font-size:clamp(34px,7vw,
 .process{padding:72px var(--gutter) 40px;max-width:1440px;margin:0 auto}
 .process h2,.close h2,.looks h2{margin:0;font-family:var(--display);font-weight:200;font-size:clamp(28px,4vw,52px);line-height:1.1;letter-spacing:.22em}
 .process .sub{margin:12px 0 32px;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
-.reel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.reel{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .tile{position:relative;margin:0;overflow:hidden;background:#141826;aspect-ratio:3/4}
-.tile img,.tile video{display:block;width:100%;height:100%;object-fit:cover}
+.tile img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(0deg,rgba(10,13,24,.85),rgba(10,13,24,0));display:flex;align-items:baseline;gap:10px}
 .tile figcaption b{font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:.2em}
 .tile figcaption span{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
@@ -82,7 +87,24 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 
 <header>
  <div class="hero">
-  <img src="static/lookbook/hero.jpg" alt="TP studying a jewelry and accessories case in a store">
+  <div class="slides" id="slides" aria-roledescription="slideshow" aria-label="TP's looks">
+    <div class="sh on"><img class="b" src="static/fits/fit-07.jpg" alt=""><img class="f" src="static/fits/fit-07.jpg" alt="Washed tee with a white neckerchief and denim shorts"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-10.jpg" alt=""><img class="f" data-src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-04.jpg" alt=""><img class="f" data-src="static/fits/fit-04.jpg" alt="Paisley pants, washed tee and patent sneakers on a bench"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-11.jpg" alt=""><img class="f" data-src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-03.jpg" alt=""><img class="f" data-src="static/fits/fit-03.jpg" alt="Peach tee, light denim and a checkered crossbody at night"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-15.jpg" alt=""><img class="f" data-src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-14.jpg" alt=""><img class="f" data-src="static/fits/fit-14.jpg" alt="TP holding up a pair of pants while shopping"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-09.jpg" alt=""><img class="f" data-src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-01.jpg" alt=""><img class="f" data-src="static/fits/fit-01.jpg" alt="Neon hoodie, grey skinny denim and red high-tops"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-02.jpg" alt=""><img class="f" data-src="static/fits/fit-02.jpg" alt="Flame-hem tee, striped track pants and high-tops"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-05.jpg" alt=""><img class="f" data-src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-06.jpg" alt=""><img class="f" data-src="static/fits/fit-06.jpg" alt="Pink knit with flames over black leather pants, city at night"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-12.jpg" alt=""><img class="f" data-src="static/fits/fit-12.jpg" alt="Peach tee, green cap and wide grey denim at night"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-13.jpg" alt=""><img class="f" data-src="static/fits/fit-13.jpg" alt="Band tee and leather pants, mirror shot in a store"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-16.jpg" alt=""><img class="f" data-src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store"></div>
+    <div class="sh"><img class="b" data-src="static/fits/fit-08.jpg" alt=""><img class="f" data-src="static/fits/fit-08.jpg" alt="Checkered puffer over a cream hoodie"></div>
+  </div>
   <div class="top">
     <a class="mark" href="#" aria-label="Presidential Styles home">P</a>
     <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform?usp=header">BOOK</a>
@@ -107,38 +129,34 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
       <figure class="slide"><img src="static/lookbook/look-07.jpg" alt="Sleeveless graphic tee with washed black flared denim"></figure>
       <figure class="slide"><img src="static/lookbook/look-08.jpg" alt="Embellished graphic tee with a fitted cap and shades"></figure>
       <figure class="slide"><img src="static/lookbook/look-06.jpg" alt="Tonal yellow track set with a crossbody bag"></figure>
+      <figure class="slide"><img src="static/lookbook/look-10.jpg" alt="TP with a client in a store, varsity jacket and brown wide-leg denim"></figure>
     </div>
     <div class="ctrl">
       <button class="arrow" id="prev" type="button" aria-label="Previous look">&larr;</button>
-      <span class="count" id="count" aria-live="polite">01 / 09</span>
+      <span class="count" id="count" aria-live="polite">01 / 10</span>
       <button class="arrow" id="next" type="button" aria-label="Next look">&rarr;</button>
     </div>
   </section>
 
-  <section class="process" id="process" aria-labelledby="process-title">
-    <h2 id="process-title">THE PROCESS</h2>
-    <p class="sub">TP SHOPS IT. PULLS IT. FITS IT.</p>
+  <section class="process" id="fits" aria-labelledby="fits2-title">
+    <h2 id="fits2-title">TP'S FITS</h2>
     <div class="reel">
-      <figure class="tile">
-        <video src="static/process/scout.mp4" poster="static/process/scout.jpg" muted loop playsinline preload="metadata" aria-label="TP walking the store floor"></video>
-        <figcaption><span>01</span><b>SCOUT</b></figcaption>
-      </figure>
-      <figure class="tile"><img src="static/process/shoes.jpg" alt="Wall of designer sneakers and boots on glass shelves" loading="lazy"></figure>
-      <figure class="tile"><img src="static/process/racks.jpg" alt="Store racks of jackets and denim" loading="lazy"></figure>
-      <figure class="tile">
-        <video src="static/process/pull.mp4" poster="static/process/pull.jpg" muted loop playsinline preload="metadata" aria-label="TP pulling pieces from a rack"></video>
-        <figcaption><span>02</span><b>PULL</b></figcaption>
-      </figure>
-      <figure class="tile">
-        <img src="static/process/detail-3.jpg" alt="TP studying a jewelry and accessories case" loading="lazy">
-        <figcaption><span>03</span><b>DETAIL</b></figcaption>
-      </figure>
-      <figure class="tile"><img src="static/process/detail-1.jpg" alt="Close view of the accessories case" loading="lazy"></figure>
-      <figure class="tile"><img src="static/process/detail-2.jpg" alt="TP picking through chains, belts and eyewear" loading="lazy"></figure>
-      <figure class="tile">
-        <video src="static/process/call.mp4" poster="static/process/call.jpg" muted loop playsinline preload="metadata" aria-label="TP talking through his picks"></video>
-        <figcaption><span>04</span><b>THE CALL</b></figcaption>
-      </figure>
+      <figure class="tile"><img src="static/fits/fit-01.jpg" alt="Neon hoodie, grey skinny denim and red high-tops" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-02.jpg" alt="Flame-hem tee, striped track pants and high-tops" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-03.jpg" alt="Peach tee, light denim and a checkered crossbody at night" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-04.jpg" alt="Paisley pants, washed tee and patent sneakers on a bench" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-06.jpg" alt="Pink knit with flames over black leather pants, city at night" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-07.jpg" alt="Washed tee with a white neckerchief and denim shorts" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-08.jpg" alt="Checkered puffer over a cream hoodie" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-12.jpg" alt="Peach tee, green cap and wide grey denim at night" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-13.jpg" alt="Band tee and leather pants, mirror shot in a store" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-14.jpg" alt="TP holding up a pair of pants while shopping" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim" loading="lazy"></figure>
+      <figure class="tile"><img src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store" loading="lazy"></figure>
     </div>
   </section>
 
@@ -194,15 +212,18 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   mark(); prev.disabled=true;
 })();
 
+</script>
+<script>
 (function(){
-  // process videos: play only while on screen
-  var vids=[].slice.call(document.querySelectorAll('.process video'));
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function play(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}
-  if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play(e.target):e.target.pause();});},{threshold:.4});
-    vids.forEach(function(v){io.observe(v);});
-  }
+  var sl=[].slice.call(document.querySelectorAll('#slides .sh')), i=0;
+  if(sl.length<2) return;
+  function load(el){[].forEach.call(el.querySelectorAll('img[data-src]'),function(im){im.src=im.getAttribute('data-src');im.removeAttribute('data-src');});}
+  load(sl[1]);
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setInterval(function(){
+    if(document.hidden) return;
+    sl[i].classList.remove('on'); i=(i+1)%sl.length; load(sl[i]); sl[i].classList.add('on'); load(sl[(i+1)%sl.length]);
+  },10000);
 })();
 </script>
 </body>
