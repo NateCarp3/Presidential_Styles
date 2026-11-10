@@ -165,6 +165,31 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 /* close */
 .close{display:flex;flex-direction:column;align-items:center;gap:24px;padding:40px var(--gutter) 88px;text-align:center}
 .close .acts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.book-sub{margin:-8px 0 0;max-width:52ch;color:#c9c3b8;font-size:16px;line-height:1.6}
+.bform{width:min(860px,100%);text-align:left;margin-top:8px}
+.bgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.wide{grid-column:1/-1}
+.f label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c9c3b8}
+.f label i,.bnote i{font-style:normal;color:var(--gold)}
+.f input,.f textarea{font:inherit;font-size:16px;color:var(--ink);background:rgba(239,233,220,.04);border:1px solid rgba(239,233,220,.22);border-radius:0;padding:12px 14px;width:100%;box-sizing:border-box}
+.f textarea{resize:vertical;min-height:96px}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--gold);background:rgba(239,233,220,.07)}
+.f.bad input,.f.bad textarea{border-color:#e07a7a}
+.err{min-height:0;font-size:13px;color:#ef9a9a}
+.err:empty{display:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.bfoot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+.bfoot .btn{cursor:pointer;font-family:var(--body)}
+.bfoot .btn[disabled]{opacity:.6;cursor:wait}
+.bnote{font-size:13px;color:#a9a39a}
+.bstatus{margin:18px 0 0;font-size:16px;line-height:1.6}
+.bstatus:empty{display:none}
+.bstatus.ok{color:var(--gold)}
+.bstatus.bad{color:#ef9a9a}
+.bstatus a{color:var(--ink)}
+@media (max-width:640px){.bgrid{grid-template-columns:1fr}}
+
 footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;padding:0 var(--gutter) 32px}
 </style>
 </head>
@@ -173,7 +198,7 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 <header class="hero">
   <div class="top">
     <a class="mark" href="#" aria-label="Presidential Styles home">P</a>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform?usp=header">BOOK</a>
+    <a class="btn" href="#book">BOOK</a>
   </div>
   <div class="hero-text">
     <div class="title">
@@ -275,10 +300,29 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
     </div>
   </section>
 
-  <section class="close">
-    <h2>YOUR TURN.</h2>
+  <section class="close" id="book" aria-labelledby="book-title">
+    <h2 id="book-title">YOUR TURN.</h2>
+    <p class="book-sub">Tell me about your style and what you need. I'll get back to you to set up your consultation.</p>
+    <form class="bform" id="bform" action="/book" method="post" novalidate>
+      <div class="bgrid">
+        <div class="f"><label for="b-name">Name <i>*</i></label><input id="b-name" name="name" autocomplete="name" required maxlength="120"><small class="err" id="e-name"></small></div>
+        <div class="f"><label for="b-email">Email <i>*</i></label><input id="b-email" name="email" type="email" autocomplete="email" required maxlength="200"><small class="err" id="e-email"></small></div>
+        <div class="f"><label for="b-phone">Phone number</label><input id="b-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"><small class="err" id="e-phone"></small></div>
+        <div class="f"><label for="b-zip">Zip code <i>*</i></label><input id="b-zip" name="zip" autocomplete="postal-code" inputmode="numeric" required maxlength="20"><small class="err" id="e-zip"></small></div>
+        <div class="f wide"><label for="b-style">Describe your style <i>*</i></label><textarea id="b-style" name="style" rows="3" required maxlength="2000"></textarea><small class="err" id="e-style"></small></div>
+        <div class="f"><label for="b-budget">What is your budget?</label><input id="b-budget" name="budget" maxlength="120"><small class="err" id="e-budget"></small></div>
+        <div class="f"><label for="b-event">Is there a specific event you're getting styled for?</label><input id="b-event" name="event" maxlength="2000"><small class="err" id="e-event"></small></div>
+        <div class="f wide"><label for="b-requests">Any specific outfit requests?</label><textarea id="b-requests" name="requests" rows="3" maxlength="2000"></textarea><small class="err" id="e-requests"></small></div>
+        <div class="f wide"><label for="b-comments">Comments</label><textarea id="b-comments" name="comments" rows="3" maxlength="2000"></textarea><small class="err" id="e-comments"></small></div>
+        <div class="hp" aria-hidden="true"><label for="b-website">Website</label><input id="b-website" name="website" tabindex="-1" autocomplete="off"></div>
+      </div>
+      <div class="bfoot">
+        <button class="btn gold" type="submit" id="b-send">SEND REQUEST</button>
+        <span class="bnote"><i>*</i> Required</span>
+      </div>
+      <p class="bstatus" id="b-status" role="status" aria-live="polite"></p>
+    </form>
     <div class="acts">
-      <a class="btn gold" href="https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform?usp=header">BOOK TP</a>
       <a class="btn" href="https://www.instagram.com/presidenialstyles_/">@PRESIDENIALSTYLES_</a>
     </div>
   </section>
@@ -416,6 +460,34 @@ function initCarousel(sec){
   document.getElementById('pm-x').addEventListener('click',close);
   pm.addEventListener('click',function(e){if(e.target===pm)close();});
   document.addEventListener('keydown',function(e){if(!pm.hidden&&e.key==='Escape')close();});
+})();
+</script>
+<script>
+(function(){
+  var form=document.getElementById('bform'); if(!form) return;
+  var btn=document.getElementById('b-send'), status=document.getElementById('b-status');
+  var GF='https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform';
+  var need={name:'Enter your name',email:'Enter your email',zip:'Enter your zip code',style:'Tell me a bit about your style'};
+  function setErr(k,msg){var e=document.getElementById('e-'+k);if(!e)return;e.textContent=msg||'';e.parentNode.classList.toggle('bad',!!msg);}
+  [].forEach.call(form.querySelectorAll('input,textarea'),function(el){el.addEventListener('input',function(){setErr(el.name,'');});});
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var data={}; [].forEach.call(form.elements,function(el){if(el.name)data[el.name]=el.value.trim();});
+    var first=null;
+    Object.keys(need).forEach(function(k){if(!data[k]){setErr(k,need[k]);first=first||k;}});
+    if(data.email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)){setErr('email','Enter a valid email, like name@example.com');first=first||'email';}
+    if(first){document.getElementById('b-'+first).focus();status.className='bstatus';status.textContent='';return;}
+    btn.disabled=true; btn.textContent='SENDING…'; status.className='bstatus'; status.textContent='';
+    fetch(form.getAttribute('action'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {ok:false};}).then(function(j){return {r:r,j:j};});})
+      .then(function(x){
+        if(x.j&&x.j.ok){form.reset();status.className='bstatus ok';status.textContent="Thanks"+(data.name?', '+data.name.split(' ')[0]:'')+". Your request was sent. TP will be in touch soon.";return;}
+        if(x.j&&x.j.errors){Object.keys(x.j.errors).forEach(function(k){setErr(k,x.j.errors[k]==='Required'?(need[k]||'Required'):x.j.errors[k]);});return;}
+        throw new Error('send');
+      })
+      .catch(function(){status.className='bstatus bad';status.innerHTML='Your request couldn\'t be sent. Please try again, or <a href="'+GF+'">use the booking form</a>.';})
+      .then(function(){btn.disabled=false;btn.textContent='SEND REQUEST';});
+  });
 })();
 </script>
 </body>
