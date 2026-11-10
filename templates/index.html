@@ -36,8 +36,7 @@ a{color:var(--ink)}
 .slides{position:absolute;inset:0;background:#05070f}
 .sh{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity 1.4s ease}
 .sh.on{opacity:1}
-.sh .b{position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(30px) brightness(.45);transform:scale(1.05)}
-.sh .f{position:relative;display:block;width:100%;height:100%;object-fit:contain}
+.sh .f{position:relative;display:block;width:100%;height:100%;object-fit:cover}
 .top{z-index:2}
 .top{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px var(--gutter)}
 .mark{font-family:var(--display);font-weight:300;font-size:28px;letter-spacing:.2em;text-decoration:none}
@@ -89,22 +88,22 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 <header>
  <div class="hero">
   <div class="slides" id="slides" aria-roledescription="slideshow" aria-label="TP's looks">
-    <div class="sh on"><img class="b" src="static/fits/fit-07.jpg" alt=""><img class="f" src="static/fits/fit-07.jpg" alt="Washed tee with a white neckerchief and denim shorts"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-10.jpg" alt=""><img class="f" data-src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-04.jpg" alt=""><img class="f" data-src="static/fits/fit-04.jpg" alt="Paisley pants, washed tee and patent sneakers on a bench"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-11.jpg" alt=""><img class="f" data-src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-03.jpg" alt=""><img class="f" data-src="static/fits/fit-03.jpg" alt="Peach tee, light denim and a checkered crossbody at night"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-15.jpg" alt=""><img class="f" data-src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-14.jpg" alt=""><img class="f" data-src="static/fits/fit-14.jpg" alt="TP holding up a pair of pants while shopping"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-09.jpg" alt=""><img class="f" data-src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-01.jpg" alt=""><img class="f" data-src="static/fits/fit-01.jpg" alt="Neon hoodie, grey skinny denim and red high-tops"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-02.jpg" alt=""><img class="f" data-src="static/fits/fit-02.jpg" alt="Flame-hem tee, striped track pants and high-tops"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-05.jpg" alt=""><img class="f" data-src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-06.jpg" alt=""><img class="f" data-src="static/fits/fit-06.jpg" alt="Pink knit with flames over black leather pants, city at night"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-12.jpg" alt=""><img class="f" data-src="static/fits/fit-12.jpg" alt="Peach tee, green cap and wide grey denim at night"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-13.jpg" alt=""><img class="f" data-src="static/fits/fit-13.jpg" alt="Band tee and leather pants, mirror shot in a store"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-16.jpg" alt=""><img class="f" data-src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store"></div>
-    <div class="sh"><img class="b" data-src="static/fits/fit-08.jpg" alt=""><img class="f" data-src="static/fits/fit-08.jpg" alt="Checkered puffer over a cream hoodie"></div>
+    <div class="sh on"><img class="f" src="static/fits/fit-07.jpg" style="object-position:0% 20%" alt="Washed tee with a white neckerchief and denim shorts"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-10.jpg" style="object-position:43% 42%" alt="Graphic tee and wide grey denim at a flower mural"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-04.jpg" style="object-position:86% 36%" alt="Paisley pants, washed tee and patent sneakers on a bench"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-11.jpg" style="object-position:50% 40%" alt="Airbrushed zip hoodie with cargo shorts"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-03.jpg" style="object-position:71% 56%" alt="Peach tee, light denim and a checkered crossbody at night"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-15.jpg" style="object-position:50% 46%" alt="Distressed graphic sweatshirt with light wide-leg denim"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-14.jpg" style="object-position:0% 26%" alt="TP holding up a pair of pants while shopping"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-09.jpg" style="object-position:50% 45%" alt="Printed long sleeve, red belt and faded wide-leg denim"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-01.jpg" style="object-position:100% 3%" alt="Neon hoodie, grey skinny denim and red high-tops"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-02.jpg" style="object-position:100% 18%" alt="Flame-hem tee, striped track pants and high-tops"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-05.jpg" style="object-position:0% 52%" alt="Cartoon graphic tee with black leather pants"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-06.jpg" style="object-position:50% 0%" alt="Pink knit with flames over black leather pants, city at night"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-12.jpg" style="object-position:100% 50%" alt="Peach tee, green cap and wide grey denim at night"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-13.jpg" style="object-position:100% 46%" alt="Band tee and leather pants, mirror shot in a store"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-16.jpg" style="object-position:100% 46%" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store"></div>
+    <div class="sh"><img class="f" data-src="static/fits/fit-08.jpg" style="object-position:50% 0%" alt="Checkered puffer over a cream hoodie"></div>
   </div>
   <div class="top">
     <a class="mark" href="#" aria-label="Presidential Styles home">P</a>
