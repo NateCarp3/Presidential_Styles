@@ -58,9 +58,11 @@ h1{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(60px,11vw
 @media (max-width:600px){.looks{--w:74vw;padding-top:40px}}
 @media (prefers-reduced-motion:reduce){.track{scroll-behavior:auto}.slide{transition:none}}
 
+.looks h2{padding:0 var(--gutter);max-width:1440px;margin:0 auto 28px;box-sizing:border-box}
+
 /* process: TP on the shop floor */
 .process{padding:72px var(--gutter) 40px;max-width:1440px;margin:0 auto}
-.process h2,.close h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:1}
+.process h2,.close h2,.looks h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:1}
 .process .sub{margin:12px 0 32px;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
 .reel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .tile{position:relative;margin:0;overflow:hidden;background:#141826;aspect-ratio:3/4}
@@ -92,7 +94,8 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
 </header>
 
 <main>
-  <section class="looks" aria-roledescription="carousel" aria-label="Looks styled by TP">
+  <section class="looks" aria-roledescription="carousel" aria-labelledby="fits-title">
+    <h2 id="fits-title">CLIENT FITS</h2>
     <div class="track" id="track" tabindex="0">
       <figure class="slide on"><img src="static/lookbook/look-01.jpg" alt="Distressed graphic tee with washed wide-leg denim"></figure>
       <figure class="slide"><img src="static/lookbook/look-02.jpg" alt="Graphic zip hoodie with studded black denim shorts"></figure>
