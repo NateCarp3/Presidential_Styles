@@ -42,10 +42,12 @@ a{color:var(--ink)}
 .mark{font-family:var(--display);font-weight:300;font-size:28px;letter-spacing:.2em;text-decoration:none}
 .top .btn{padding:10px 20px;background:rgba(10,13,24,.55)}
 .top .btn:hover{background:var(--ink)}
-.title{position:absolute;left:var(--gutter);bottom:clamp(20px,4vw,48px);z-index:2;max-width:calc(100% - 2 * var(--gutter));padding:clamp(18px,2.6vw,32px) clamp(20px,3vw,40px);background:rgba(8,11,22,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-left:3px solid var(--gold);box-sizing:border-box}
-@media (max-width:600px){.title{left:0;right:0;bottom:0;max-width:none;border-left:0;border-top:3px solid var(--gold)}}
-h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(30px,6vw,88px);line-height:1.08;letter-spacing:.22em;margin-right:-.22em}
-.tag{margin:18px 0 0;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.title{position:absolute;left:var(--gutter);bottom:clamp(24px,5vw,64px);z-index:2;max-width:calc(100% - 2 * var(--gutter));padding:clamp(14px,2vw,24px) 0;isolation:isolate}
+.title::before{content:"";position:absolute;z-index:-1;inset:-110px -200px -90px -200px;background:rgba(8,11,22,.94);-webkit-mask-image:linear-gradient(to right,transparent,#000 180px,#000 calc(100% - 180px),transparent),linear-gradient(to bottom,transparent,#000 110px,#000 calc(100% - 80px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 180px,#000 calc(100% - 180px),transparent),linear-gradient(to bottom,transparent,#000 110px,#000 calc(100% - 80px),transparent);mask-composite:intersect;pointer-events:none}
+@media (max-width:600px){.title{left:var(--gutter);right:var(--gutter);bottom:20px;max-width:none}.title::before{inset:-90px calc(-1 * var(--gutter)) -20px;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%);mask-image:linear-gradient(to bottom,transparent,#000 55%)}}
+h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,5vw,76px);line-height:1.1;letter-spacing:.22em;margin-right:-.22em;white-space:nowrap}
+@media (max-width:600px){h1{letter-spacing:.14em;margin-right:-.14em;font-size:6.6vw}}
+.tag{margin:14px 0 0;font-size:clamp(11px,1.1vw,15px);font-weight:700;letter-spacing:.18em;color:var(--gold)}
 
 /* looks carousel: one look centred, neighbours faded at the sides */
 .looks{--w:min(64vw,460px);position:relative;padding:64px 0 24px}
@@ -110,7 +112,7 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
     <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdY4iMSVjPhfRr5Q740UFEqvqDGJLQX9Ir_fJTYiijJUV1Y7g/viewform?usp=header">BOOK</a>
   </div>
   <div class="title">
-    <h1>PRESIDENTIAL<br>STYLES</h1>
+    <h1>PRESIDENTIAL STYLES</h1>
     <p class="tag">MEN'S CELEBRITY STYLIST · NEW JERSEY</p>
   </div>
  </div>
