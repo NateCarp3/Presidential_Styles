@@ -32,8 +32,10 @@ a{color:var(--ink)}
 .btn.gold:hover{background:var(--ink);border-color:var(--ink)}
 
 /* hero */
-.hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden;background:var(--bg)}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:2% 43%}
+.hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden;background:radial-gradient(ellipse 60% 80% at 50% 50%,#141c38,var(--bg) 75%)}
+.hero-frame{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(min(92vh,880px) * 1.442));-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.hero-frame picture{display:contents}
+.hero-img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .hero-text{position:absolute;left:var(--gutter);right:var(--gutter);top:clamp(88px,9vw,124px);z-index:2;container-type:inline-size}
 .title{position:relative;display:inline-block;max-width:100%;padding:clamp(12px,1.8vw,22px) 0;isolation:isolate}
 .title::before{content:"";position:absolute;z-index:-1;inset:-130px -260px -110px -260px;background:rgba(8,11,22,.5);-webkit-mask-image:linear-gradient(to right,transparent,#000 280px,#000 calc(100% - 280px),transparent),linear-gradient(to bottom,transparent,#000 130px,#000 calc(100% - 110px),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 280px,#000 calc(100% - 280px),transparent),linear-gradient(to bottom,transparent,#000 130px,#000 calc(100% - 110px),transparent);mask-composite:intersect;pointer-events:none}
@@ -45,6 +47,8 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .top .btn:hover{background:var(--ink)}
 @media (max-width:600px){
   .hero{height:min(88vh,760px);min-height:520px}
+  .hero-frame{left:0;transform:none;width:100%;-webkit-mask-image:none;mask-image:none}
+  .hero-img{object-position:2% 43%}
   .hero-text{top:auto;bottom:20px}
   .title{display:block}
   .title::before{inset:-110px calc(-1 * var(--gutter)) -20px;background:rgba(8,11,22,.6);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%);mask-image:linear-gradient(to bottom,transparent,#000 55%)}
@@ -101,7 +105,12 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
       <p class="tag">MEN'S CELEBRITY STYLIST · NEW JERSEY</p>
     </div>
   </div>
-  <img class="hero-img" src="static/lookbook/hero-bench.jpg" alt="TP seated on a bench in paisley pants, a washed tee and patent sneakers">
+  <div class="hero-frame">
+    <picture>
+      <source media="(max-width:600px)" srcset="static/lookbook/hero-bench.jpg">
+      <img class="hero-img" src="static/lookbook/hero-bench-wide.jpg" alt="TP seated on a bench in paisley pants, a washed tee and patent sneakers">
+    </picture>
+  </div>
 </header>
 
 <main>
