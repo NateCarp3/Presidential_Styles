@@ -372,7 +372,7 @@ function initCarousel(sec){
   window.addEventListener('pointerup',function(){if(!down)return;down=false;track.style.scrollSnapType='';track.style.scrollBehavior='';mark();center(cur);});
   track.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false;}},true);
 
-  function start(){var m=Math.floor((n-1)/2), s=slides[m]; track.style.scrollBehavior='auto'; track.scrollLeft=s.offsetLeft-(track.clientWidth-s.offsetWidth)/2; track.style.scrollBehavior=''; mark();}
+  function start(){var m=0, s=slides[m]; track.style.scrollBehavior='auto'; track.scrollLeft=s.offsetLeft-(track.clientWidth-s.offsetWidth)/2; track.style.scrollBehavior=''; mark();}
   start(); window.addEventListener('load',start);
 }
 [].forEach.call(document.querySelectorAll('section.looks'),initCarousel);
