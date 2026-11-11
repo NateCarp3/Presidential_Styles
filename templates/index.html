@@ -35,7 +35,11 @@ a{color:var(--ink)}
 .btn.gold:hover{background:var(--ink);border-color:var(--ink)}
 
 /* hero */
-.hero{position:relative;height:min(92vh,880px);min-height:560px;overflow:hidden;background:radial-gradient(ellipse 60% 80% at 50% 50%,#141c38,var(--bg) 75%)}
+.hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:min(86vh,820px);padding:96px var(--gutter) 48px;box-sizing:border-box;background:radial-gradient(ellipse 60% 70% at 50% 50%,#141c38,var(--bg) 75%)}
+.hero-logo{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.hero-logo img{display:block;width:min(560px,78vw);height:auto}
+.hero-logo .tag{margin-top:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hero-frame{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,calc(min(92vh,880px) * 1.442));-webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 3%,#000 calc(100% - 3%),transparent),linear-gradient(to bottom,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent);mask-composite:intersect}
 .hero-frame picture{display:contents}
 .hero-img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
@@ -49,7 +53,7 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .top .btn{padding:10px 20px;background:rgba(10,13,24,.55)}
 .top .btn:hover{background:var(--ink)}
 @media (max-width:600px){
-  .hero{height:min(88vh,760px);min-height:520px}
+  .hero{min-height:0;padding:88px var(--gutter) 40px}
   .hero-frame{left:0;transform:none;width:100%;-webkit-mask-image:linear-gradient(to right,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent),linear-gradient(to bottom,transparent,#000 3%,#000 calc(100% - 3%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 2.5%,#000 calc(100% - 2.5%),transparent),linear-gradient(to bottom,transparent,#000 3%,#000 calc(100% - 3%),transparent);mask-composite:intersect}
   .hero-img{object-position:2% 43%}
   .hero-text{top:auto;bottom:20px}
@@ -200,17 +204,10 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
     <a class="mark" href="#" aria-label="Presidential Styles home">P</a>
     <a class="btn" href="#book">BOOK</a>
   </div>
-  <div class="hero-text">
-    <div class="title">
-      <h1>PRESIDENTIAL STYLES</h1>
-      <p class="tag">MEN'S CELEBRITY STYLIST · NEW JERSEY</p>
-    </div>
-  </div>
-  <div class="hero-frame">
-    <picture>
-      <source media="(max-width:600px)" srcset="static/lookbook/hero-bench.jpg">
-      <img class="hero-img" src="static/lookbook/hero-bench-wide.jpg" alt="TP seated on a bench in paisley pants, a washed tee and patent sneakers">
-    </picture>
+  <div class="hero-logo">
+    <h1 class="sr-only">Presidential Styles</h1>
+    <img src="static/lookbook/logo.png" alt="Presidential Styles logo" width="989" height="875">
+    <p class="tag">MEN'S CELEBRITY STYLIST · NEW JERSEY</p>
   </div>
 </header>
 
@@ -274,24 +271,30 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   </div>
 
   <section class="looks pstyle" id="fits" aria-roledescription="carousel" aria-labelledby="fits2-title" data-zoom>
-    <h2 id="fits2-title">CEO P STYLE</h2>
+    <h2 id="fits2-title">IN MOTION</h2>
     <div class="track" tabindex="0">
-      <figure class="slide"><img src="static/fits/fit-01.jpg" alt="Neon hoodie, grey skinny denim and red high-tops" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-02.jpg" alt="Flame-hem tee, striped track pants and high-tops" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-03.jpg" alt="Peach tee, light denim and a checkered crossbody at night" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-04.jpg" alt="Paisley pants, washed tee and patent sneakers on a bench" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-06.jpg" alt="Pink knit with flames over black leather pants, city at night" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-07.jpg" alt="Washed tee with a white neckerchief and denim shorts" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-08.jpg" alt="Checkered puffer over a cream hoodie" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-18.jpg" alt="Pulling jewelry options at a luxury resale counter" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-19.jpg" alt="Sneaker and accessory wall at a boutique" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts" loading="lazy"></figure>
-      <figure class="slide"><img src="static/fits/fit-12.jpg" alt="Peach tee, green cap and wide grey denim at night" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-13.jpg" alt="Band tee and leather pants, mirror shot in a store" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-20.jpg" alt="Racks and vintage caps at a concept store" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-14.jpg" alt="TP holding up a pair of pants while shopping" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-23.jpg" alt="Riding through the city between stores" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-15.jpg" alt="Distressed graphic sweatshirt with light wide-leg denim" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-16.jpg" alt="Varsity jacket and brown wide-leg denim, mirror shot in a store" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-24.jpg" alt="Store #1 of the day" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-17.jpg" alt="TP at Flight Club checking out sneakers with a client" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-25.jpg" alt="Clothing rack at a showroom" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-21.jpg" alt="TP with an NFL client outside the stadium" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-22.jpg" alt="TP in a varsity jacket and wide-leg pants, night shoot" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-27.jpg" alt="The ride, ready for the next stop" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-26.jpg" alt="TP on the steps in SoHo with shopping bags" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-28.jpg" alt="Sneaker wall and racks at a consignment shop" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-29.jpg" alt="TP pulling pieces with a sales associate" loading="lazy"></figure>
+      <figure class="slide"><img src="static/fits/fit-30.jpg" alt="Curated display of bags, sneakers and knitwear" loading="lazy"></figure>
     </div>
     <div class="ctrl">
       <button class="arrow prev" type="button" aria-label="Previous look">&larr;</button>
