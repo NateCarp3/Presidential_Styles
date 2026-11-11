@@ -64,11 +64,11 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 .tag{margin:14px 0 0;font-size:clamp(11px,1.1vw,15px);font-weight:700;letter-spacing:.18em;color:var(--gold)}
 
 /* looks carousel: one look centred, neighbours faded at the sides */
-.looks{--w:min(64vw,460px);position:relative;padding:64px 0 24px}
+.looks{--w:min(64vw,460px);--lead:var(--gutter);position:relative;padding:64px 0 24px}
 .track{display:flex;gap:clamp(12px,3vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
-  padding:8px calc(50% - var(--w)/2) 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  padding:8px calc(100% - var(--w) - var(--lead)) 16px var(--lead);scroll-padding-left:var(--lead);scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .track::-webkit-scrollbar{display:none}
-.slide{flex:0 0 var(--w);scroll-snap-align:center;margin:0;opacity:.28;transform:scale(.88);transition:opacity .4s ease,transform .4s ease;cursor:pointer}
+.slide{flex:0 0 var(--w);scroll-snap-align:start;margin:0;opacity:.28;transform:scale(.88);transition:opacity .4s ease,transform .4s ease;cursor:pointer}
 .slide.on{opacity:1;transform:scale(1);cursor:default}
 .pstyle .slide.on{cursor:pointer}
 .closet .slide.on{cursor:pointer}
@@ -340,14 +340,15 @@ function initCarousel(sec){
   var prev=sec.querySelector('.prev'), next=sec.querySelector('.next'), dots=[].slice.call(sec.querySelectorAll('.dots span'));
   var cur=-1, n=slides.length;
 
+  function lead(){return parseFloat(getComputedStyle(track).paddingLeft)||0;}
   function center(i){
     var s=slides[i];
-    track.scrollTo({left:s.offsetLeft-(track.clientWidth-s.offsetWidth)/2,behavior:'smooth'});
+    track.scrollTo({left:s.offsetLeft-track.offsetLeft-lead(),behavior:'smooth'});
   }
   function go(i){center(Math.max(0,Math.min(n-1,i)));}
   function mark(){
-    var mid=track.scrollLeft+track.clientWidth/2, best=0, bd=Infinity;
-    slides.forEach(function(s,i){var d=Math.abs(s.offsetLeft+s.offsetWidth/2-mid);if(d<bd){bd=d;best=i;}});
+    var edge=track.scrollLeft+lead(), best=0, bd=Infinity;
+    slides.forEach(function(s,i){var d=Math.abs(s.offsetLeft-track.offsetLeft-edge);if(d<bd){bd=d;best=i;}});
     if(best===cur && slides[cur].classList.contains('on'))return;
     cur=best;
     slides.forEach(function(s,i){s.classList.toggle('on',i===cur);});
@@ -372,7 +373,7 @@ function initCarousel(sec){
   window.addEventListener('pointerup',function(){if(!down)return;down=false;track.style.scrollSnapType='';track.style.scrollBehavior='';mark();center(cur);});
   track.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false;}},true);
 
-  function start(){var m=0, s=slides[m]; track.style.scrollBehavior='auto'; track.scrollLeft=s.offsetLeft-(track.clientWidth-s.offsetWidth)/2; track.style.scrollBehavior=''; mark();}
+  function start(){var m=0, s=slides[m]; track.style.scrollBehavior='auto'; track.scrollLeft=0; track.style.scrollBehavior=''; mark();}
   start(); window.addEventListener('load',start);
 }
 [].forEach.call(document.querySelectorAll('section.looks'),initCarousel);
