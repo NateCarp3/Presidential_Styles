@@ -156,6 +156,11 @@ h1{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(17px,3vw,
 /* pricing */
 .pricing{padding:72px var(--gutter) 24px;max-width:1440px;margin:0 auto;box-sizing:border-box}
 .pricing .sub{margin:14px 0 0;font-size:15px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.pay{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:22px 0 0;padding:14px 0;border-top:1px solid rgba(239,233,220,.16);border-bottom:1px solid rgba(239,233,220,.16)}
+.pay-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#a9a39a}
+.pay ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pay li{border:1px solid rgba(227,189,98,.45);color:var(--ink);padding:6px 12px;font-size:13px;letter-spacing:.06em}
+.pay li small{color:#a9a39a;font-size:11px}
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
 .plan{border:1px solid rgba(239,233,220,.16);padding:28px clamp(20px,2.4vw,32px);display:flex;flex-direction:column;gap:12px;background:rgba(239,233,220,.02)}
 .plan.wide{grid-column:1/-1}
@@ -281,10 +286,10 @@ footer{text-align:center;font-size:12px;letter-spacing:.14em;color:#8e97b3;paddi
   <section class="looks pstyle" id="fits" aria-roledescription="carousel" aria-labelledby="fits2-title" data-zoom>
     <h2 id="fits2-title">IN MOTION</h2>
     <div class="track" tabindex="0">
-      <figure class="slide"><img src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants" loading="lazy"></figure>
+      <figure class="slide"><img src="static/lookbook/look-10.jpg" alt="TP with a client in a store, varsity jacket and brown wide-leg denim"></figure>
       <figure class="slide"><img src="static/fits/fit-09.jpg" alt="Printed long sleeve, red belt and faded wide-leg denim" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-18.jpg" alt="Pulling jewelry options at a luxury resale counter" loading="lazy"></figure>
-      <figure class="slide"><img src="static/lookbook/look-10.jpg" alt="TP with a client in a store, varsity jacket and brown wide-leg denim"></figure>
+      <figure class="slide"><img src="static/fits/fit-05.jpg" alt="Cartoon graphic tee with black leather pants" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-10.jpg" alt="Graphic tee and wide grey denim at a flower mural" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-19.jpg" alt="Sneaker and accessory wall at a boutique" loading="lazy"></figure>
       <figure class="slide"><img src="static/fits/fit-11.jpg" alt="Airbrushed zip hoodie with cargo shorts" loading="lazy"></figure>
@@ -424,6 +429,12 @@ function initCarousel(sec){
     <section class="pricing" aria-labelledby="pricing-title">
       <h2 id="pricing-title">PRICING</h2>
       <p class="sub">MEN'S PERSONAL STYLING FOR ANY OCCASION</p>
+      <div class="pay" aria-label="Payment methods">
+        <span class="pay-label">Payment methods</span>
+        <ul>
+          <li>Apple Pay</li><li>Cash App</li><li>PayPal</li><li>Zelle</li><li>Cash <small>(if nearby)</small></li>
+        </ul>
+      </div>
       <div class="plans">
         <article class="plan">
           <div class="plan-top"><h3>Fit Files</h3><span class="price">$100</span></div>
