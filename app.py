@@ -3,7 +3,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, Response, jsonify, render_template, request
 
 app = Flask(__name__)
 
@@ -33,6 +33,26 @@ EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+SITE_URL = "https://presidentialstyles.shop"
+
+
+@app.route("/robots.txt")
+def robots():
+    body = f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n"
+    return Response(body, mimetype="text/plain")
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    body = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"  <url><loc>{SITE_URL}/</loc></url>\n"
+        "</urlset>\n"
+    )
+    return Response(body, mimetype="application/xml")
 
 
 @app.route("/book", methods=["POST"])
