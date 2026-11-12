@@ -85,17 +85,6 @@ def og_image():
     return resp
 
 
-@app.route("/preview-test")
-def preview_test():
-    # Bare page with only the link-preview tags, for testing iMessage.
-    return """<!DOCTYPE html><html><head><meta charset="utf-8">
-<title>Presidential Styles</title>
-<meta property="og:title" content="Presidential Styles | Men's Celebrity Stylist">
-<meta property="og:image" content="https://presidentialstyles.shop/og.jpg">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-</head><body style="background:#0a0d18;color:#fff;font:40px sans-serif;padding:40px">PAGE SNAPSHOT</body></html>"""
-
-
 @app.route("/book", methods=["POST"])
 def book():
     data = request.get_json(silent=True) or request.form
