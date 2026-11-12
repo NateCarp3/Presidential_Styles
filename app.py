@@ -3,6 +3,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+import os
+
 from flask import Flask, Response, jsonify, render_template, request
 
 app = Flask(__name__)
@@ -55,15 +57,43 @@ def sitemap():
     return Response(body, mimetype="application/xml")
 
 
+def _clean_jpeg(data):
+    """Return the JPEG with its APP1-APP15 metadata segments removed.
+
+    Keeps only the image data, so link-preview apps get a plain JPEG.
+    """
+    out, i = bytearray(data[:2]), 2
+    while i + 4 <= len(data) and data[i] == 0xFF:
+        marker = data[i + 1]
+        if marker == 0xDA:  # start of scan: copy the rest as-is
+            out += data[i:]
+            return bytes(out)
+        size = int.from_bytes(data[i + 2:i + 4], "big")
+        if not 0xE1 <= marker <= 0xEF:
+            out += data[i:i + 2 + size]
+        i += 2 + size
+    return bytes(out) + data[i:]
+
+
+@app.route("/og.jpg")
+def og_image():
+    path = os.path.join(app.static_folder, "og-logo.jpg")
+    with open(path, "rb") as f:
+        body = _clean_jpeg(f.read())
+    resp = Response(body, mimetype="image/jpeg")
+    resp.headers["Cache-Control"] = "public, max-age=86400"
+    return resp
+
+
 @app.route("/preview-test")
 def preview_test():
     # Bare page with only the link-preview tags, for testing iMessage.
     return """<!DOCTYPE html><html><head><meta charset="utf-8">
 <title>Presidential Styles</title>
 <meta property="og:title" content="Presidential Styles | Men's Celebrity Stylist">
-<meta property="og:image" content="https://presidentialstyles.shop/static/og-logo.jpg">
+<meta property="og:image" content="https://presidentialstyles.shop/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-</head><body style="background:#0a0d18"></body></html>"""
+</head><body style="background:#0a0d18;color:#fff;font:40px sans-serif;padding:40px">PAGE SNAPSHOT</body></html>"""
 
 
 @app.route("/book", methods=["POST"])
